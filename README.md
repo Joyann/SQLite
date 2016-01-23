@@ -102,9 +102,9 @@
     
     ``` sql
     -- 计算多少列 --
-    SELECT COUNT(*) FROM 't_student';
+    SELECT count(*) FROM 't_student';
     -- 计算某一列的个数 --
-    SELECT COUNT(age) FROM 't_student';
+    SELECT count(age) FROM 't_student';
     ```
     
   + 排序
@@ -135,4 +135,3 @@
     ```
     
     ​
-
