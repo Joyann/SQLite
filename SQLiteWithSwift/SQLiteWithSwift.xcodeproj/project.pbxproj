@@ -16,6 +16,7 @@
 		6285BE061C53B0800011433C /* SQLiteWithSwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6285BE051C53B0800011433C /* SQLiteWithSwiftUITests.swift */; };
 		6285BE141C53B1220011433C /* SQLiteManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6285BE131C53B1220011433C /* SQLiteManager.swift */; };
 		6285BE161C53B1470011433C /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 6285BE151C53B1470011433C /* libsqlite3.tbd */; };
+		62E387A91C57CB50006AD8AC /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62E387A81C57CB50006AD8AC /* Person.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		6285BE131C53B1220011433C /* SQLiteManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SQLiteManager.swift; sourceTree = "<group>"; };
 		6285BE151C53B1470011433C /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		6285BE171C53B1660011433C /* BridgingFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BridgingFile.h; sourceTree = "<group>"; };
+		62E387A81C57CB50006AD8AC /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +114,7 @@
 				6285BDF11C53B0800011433C /* Info.plist */,
 				6285BE131C53B1220011433C /* SQLiteManager.swift */,
 				6285BE171C53B1660011433C /* BridgingFile.h */,
+				62E387A81C57CB50006AD8AC /* Person.swift */,
 			);
 			path = SQLiteWithSwift;
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 			files = (
 				6285BE141C53B1220011433C /* SQLiteManager.swift in Sources */,
 				6285BDE81C53B0800011433C /* ViewController.swift in Sources */,
+				62E387A91C57CB50006AD8AC /* Person.swift in Sources */,
 				6285BDE61C53B0800011433C /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -496,6 +500,7 @@
 				6285BE0C1C53B0800011433C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6285BE0D1C53B0800011433C /* Build configuration list for PBXNativeTarget "SQLiteWithSwiftTests" */ = {
 			isa = XCConfigurationList;
@@ -504,6 +509,7 @@
 				6285BE0F1C53B0800011433C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6285BE101C53B0800011433C /* Build configuration list for PBXNativeTarget "SQLiteWithSwiftUITests" */ = {
 			isa = XCConfigurationList;
@@ -512,6 +518,7 @@
 				6285BE121C53B0800011433C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
