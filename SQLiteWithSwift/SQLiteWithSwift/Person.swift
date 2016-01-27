@@ -22,7 +22,6 @@ class Person: NSObject {
     func insertSQL() {
         let insertSQL = "INSERT INTO t_person (name, age) VALUES ('\(name ?? "")', \(age))"
 
-        print(insertSQL)
         if SQLiteManager.sharedManager().executeSQL(insertSQL) {
             print("插入成功!")
         }

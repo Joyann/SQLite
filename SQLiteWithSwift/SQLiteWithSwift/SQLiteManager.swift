@@ -52,12 +52,63 @@ class SQLiteManager: NSObject {
     
     // 删除表
     func deleteTable() {
-        let deleteTableSQL = "DROP TABLE t_person IF EXISTS"
+        let deleteTableSQL = "DROP TABLE IF EXISTS t_person;"
         if executeSQL(deleteTableSQL) {
             print("删除表成功!")
         }
     }
     
+    // 查询数据
+    func querySQL() -> [[String: AnyObject]]? {
+        
+        let query = "SELECT name, age FROM t_person"
+        var pStmt: COpaquePointer = nil
+        if sqlite3_prepare_v2(pDb, query, -1, &pStmt, nil) != SQLITE_OK {
+            print("查询数据失败!")
+            return nil
+        }
+        
+        var dicts = [[String: AnyObject]]()
+        
+        while sqlite3_step(pStmt) == SQLITE_ROW { // 判断是否有下一行
+            guard let dict = getDataWithStmt(pStmt) else {
+                print("获取数据失败!")
+                break
+            }
+            dicts.append(dict)
+        }
+        
+        print(dicts)
+        
+        return dicts
+    }
+    
+    private func getDataWithStmt(pStmt: COpaquePointer) -> [String: AnyObject]? {
+        let fieldCount = sqlite3_column_count(pStmt) // 根据查询语句，当前为2个字段(name, age)
+
+        var dict = [String: AnyObject]()
+        
+        for i in 0..<fieldCount {
+            // 获取字段名
+            let cFieldName = sqlite3_column_name(pStmt, i)
+            guard let fieldName = String(CString: cFieldName, encoding: NSUTF8StringEncoding) else {
+                print("获取字段名失败!")
+                return nil
+            }
+
+            // 获取字段名对应的value
+            let cFieldValue = sqlite3_column_text(pStmt, i)
+            guard let fieldValue = String(CString: UnsafePointer(cFieldValue), encoding: NSUTF8StringEncoding) else {
+                print("获取字段对应的值失败!")
+                return nil
+            }
+
+            dict[fieldName] = fieldValue
+        }
+
+        return dict
+    }
+
     // 执行SQL语句
     func executeSQL(statement: String) -> Bool {
         let sql = statement.cStringUsingEncoding(NSUTF8StringEncoding)!

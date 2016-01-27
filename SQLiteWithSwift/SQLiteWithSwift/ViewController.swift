@@ -23,7 +23,19 @@ class ViewController: UIViewController {
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        loadData()
+//        loadData()
+        modifyData()
+//        SQLiteManager.sharedManager().deleteTable()
+        SQLiteManager.sharedManager().querySQL()
+        
+        
+    }
+    
+    private func modifyData() {
+        let modifySQL = "UPDATE t_person SET name='Blake' WHERE age=8"
+        if SQLiteManager.sharedManager().executeSQL(modifySQL) {
+            print("修改成功!")
+        }
     }
 
     private func loadData() {
